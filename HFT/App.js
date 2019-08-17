@@ -3,14 +3,15 @@ import Login from './components/login';
 import Home from './components/home';
 import Details from './components/details';
 import Confirm from './components/confirm';
+import Splash from './components/splash'
 import {createSwitchNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 
 const home = createStackNavigator({
   Home : {
     screen : Home,
     navigationOptions: {
-      header: null
-    }
+      header: null,
+    },
   },
   Confirm : {
     screen : Confirm,
@@ -57,7 +58,21 @@ const login = createSwitchNavigator({
   }
 })
 
-const AppCont = createAppContainer(login);
+const load = createSwitchNavigator({
+  Splash : {
+    screen : Splash
+  },
+  Login : {
+    screen : login,
+  }
+},
+{
+  defaultNavigationOptions : {
+    header : null,
+  }
+})
+
+const AppCont = createAppContainer(load);
 
 function App(){
   return <AppCont />
