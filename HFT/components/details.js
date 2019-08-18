@@ -1,46 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 
+
 function Details(props){
 
-    const [data, setData] = useState([
-        {
-            key : "1",
-            date : '1/1/2019',
-            quantity :  "1 kg",
-            harm : 'Low'
-        },
-        {
-            key : "2",
-            date : '1/2/2019',
-            quantity :  "2 kg",
-            harm : 'Medium'
-        },
-        {
-            key : "3",
-            date : '1/3/2019',
-            quantity :  "3 kg",
-            harm : 'High'
-        },
-        {
-            key : "4",
-            date : '1/4/2019',
-            quantity :  "1 kg",
-            harm : 'Low'
-        },
-        {
-            key : "5",
-            date : '1/5/2019',
-            quantity :  "2 kg",
-            harm : 'Medium'
-        },
-        {
-            key : "6",
-            date : '1/6/2019',
-            quantity :  "3 kg",
-            harm : 'High'
-        }
-    ])
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        fetch('https://logs11.herokuapp.com/')
+            .then(resp => resp.json())
+            .then(data => setData(data.results))
+    }, []);
 
     return(
         <View style={{justifyContent : 'center', alignItems : 'center', flex : 1 }}>
@@ -66,7 +36,9 @@ function Details(props){
 
 const styles = StyleSheet.create({
     flat : {
-        width : "90%",
+        width : "100%",
+        paddingLeft : 15,
+        paddingRight : 15,
         marginBottom : 20
     },
     box : {

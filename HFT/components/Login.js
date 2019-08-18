@@ -10,7 +10,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-export default class Sign extends Component {
+export default class Login extends Component {
   render() {
     return (
 

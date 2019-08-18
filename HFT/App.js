@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Login from './components/login';
 import Home from './components/home';
 import Details from './components/details';
 import Confirm from './components/confirm';
 import Splash from './components/splash'
 import {createSwitchNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+
 
 const home = createStackNavigator({
   Home : {
@@ -16,24 +17,27 @@ const home = createStackNavigator({
   Confirm : {
     screen : Confirm,
     navigationOptions : {
-      title : 'Order'
+      title : 'Request Pickup',
     }
   },
   Details : {
     screen : Details,
     navigationOptions : {
-      title : "Details"
+      title : "Pickup History"
     }
   }
 },
 {
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: '#87c3ed',
+      backgroundColor: '#1a5e8f',
+      height : 80
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold',
+      flex : 1,
+      
     },
   }
 })
@@ -72,7 +76,7 @@ const load = createSwitchNavigator({
   }
 })
 
-const AppCont = createAppContainer(load);
+const AppCont = createAppContainer(login);
 
 function App(){
   return <AppCont />
