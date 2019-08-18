@@ -3,7 +3,7 @@
 import React from 'react';
 import { Container, Header, Content, Item, Input } from 'native-base';
 import { TouchableOpacity, ImageBackground } from 'react-native';
-import sasi from '../assets/as.png';
+import sasi from '../assets/back.png';
 import {
   View,
   Text,
@@ -14,26 +14,39 @@ export default function Login(props) {
     return (
 
       <React.Fragment>
-            <ImageBackground source={sasi} style={{ flex: 1, width: '100%', alignItems: 'center' }}>
+            <ImageBackground source={sasi} style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent : 'center' }}>
 
-      <View style={{ top: 320, width: '80%', alignItems: 'center', alignSelf: 'center' }}>
-       <Item rounded style={{ alignItems: 'center', backgroundColor : 'white' }}>
+      <View style = {{shadowColor: "#000",
+shadowOffset: {
+	width: 10,
+	height: 10,
+},
+shadowOpacity: 0.80,
+shadowRadius: 13.97,
+
+elevation: 30,
+backgroundColor : 'white',
+padding : 30,
+borderRadius : 10}}>
+      <View style={{  width: '80%', alignItems: 'center', alignSelf: 'center', marginBottom: 10 }}>
+       <Item rounded style={{ alignItems: 'center', backgroundColor : 'white', borderColor: 'black' }}>
           <Input placeholder='Email' style = {{textAlign : 'center'}} />
         </Item>
       </View>
 
-      <View style={{ top: 326, width: '80%', alignItems: 'center', alignSelf: 'center' }}>
-        <Item rounded style={{ alignItems: 'center', backgroundColor : 'white' }}>
-           <Input placeholder='Password' style={{textAlign : 'center'}} />
+      <View style={{  width: '80%', alignItems: 'center', alignSelf: 'center', marginBottom: 15 }}>
+        <Item rounded style={{ alignItems: 'center', backgroundColor : 'white', borderColor : 'blackssss' }}>
+           <Input placeholder='Password' style={{textAlign : 'center'}} secureTextEntry={true} />
         </Item>
       </View>
       
-      <TouchableOpacity style={{ alignItems: 'center', alignSelf: 'center', top: 350 }} onPress = {() => props.navigation.navigate('Home')}>
-      <View style={{height: 40, width: 200, backgroundColor: '#F55A5A', borderRadius: 20, justifyContent : 'center'}}>
+      <TouchableOpacity style={{ alignItems: 'center', alignSelf: 'center' }} onPress = {() => props.navigation.navigate('Home')}>
+      <View style={{height: 40, width: 150, backgroundColor: '#F55A5A', borderRadius: 10, justifyContent : 'center'}}>
       <Text style={{ fontSize: 20, color: '#fff', textAlign : 'center' }}>
       Login</Text>
       </View>
       </TouchableOpacity>
+      </View>
   </ImageBackground>
       </React.Fragment>
 
